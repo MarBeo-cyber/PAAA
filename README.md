@@ -1,46 +1,126 @@
 # PAAA — Personal Autopoietic Adaptive Agent
 
-## Mission
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status: Research Prototype](https://img.shields.io/badge/status-research%20prototype-orange.svg)]()
 
-Supportare il monitoraggio longitudinale di variazioni neurofunzionali precoci e promuovere consapevolezza, autoregolazione e raccolta strutturata di segnali utili da condividere con professionisti sanitari.
+> *PAAA does not search for disease. It searches for persistent deviations from individual neurofunctional continuity.*
 
-## Posizionamento
+PAAA is a longitudinal personal neurofunctional monitoring platform. It compares the user with their own historical baseline — not with population norms — to detect persistent deviations that may merit clinical attention.
 
-PAAA non è un dispositivo diagnostico né terapeutico.
+**PAAA is not a diagnostic device. It does not identify pathologies. It supports awareness and professional consultation.**
 
-PAAA osserva deviazioni persistenti dalla continuità neurofunzionale individuale e supporta la raccolta di informazioni da approfondire con professionisti sanitari.
+---
 
-## Principio guida
+## Conceptual Genealogy
 
-> PAAA non ricerca la malattia.  
-> Ricerca deviazioni persistenti dalla continuità neurofunzionale individuale.
+| Project | Core Function | Temporal Domain |
+|---|---|---|
+| WAAA | Weak autopoietic perception | Seconds (cognitive cycle) |
+| MAAA | Metacognitive embodied cognition in emergency | Real-time (<200ms) |
+| **PAAA** | **Personal neurofunctional continuity** | **Weeks / months / years** |
+| SAAA | Sapient learning consolidation | Sessions / learning cycles |
 
-## Use Case — Emerging Neurofunctional Signals
+*The WAAA → MAAA → PAAA → SAAA progression constitutes an artificial ontogenesis: development by stages analogous to biological cognitive maturation.*
 
-PAAA può essere utilizzato come piattaforma personale di osservazione di cambiamenti neurofunzionali che, nel tempo, potrebbero meritare approfondimento clinico.
+---
 
-Esempi di segnali osservabili:
+## Five-Layer Architecture
 
-- micro-variazioni del tremore;
-- motricità fine;
-- postura;
-- ritmo del cammino;
-- voce;
-- sonno e recupero;
-- stress e variabilità fisiologica;
-- risposta motoria a esercizi guidati.
+```
+L1  Passive Sensing          ← smartphone, wearable, task-based acquisition
+L2  Feature Extraction       ← tremor, gait, voice biomarkers, HRV, GSR
+L3  Personal Baseline Engine ← individual z-score, persistency filter, seasonality
+L4  Awareness & Biofeedback  ← dashboard, notifications, report export
+L5  Autopoietic Continuity   ← self-monitoring of sensor quality and data validity
+```
 
-Quando il sistema rileva una deviazione persistente rispetto alla baseline personale:
+No layer compares the user to population norms. All comparison is individual-longitudinal.
 
-- aumenta la consapevolezza dell’utente;
-- propone raccolta dati aggiuntiva;
-- suggerisce consulto medico;
-- prepara report esportabile per professionisti sanitari.
+---
 
-Il sistema non formula diagnosi e non identifica patologie.
+## What PAAA Monitors
 
-## Architettura sintetica
+- **Tremor** — frequency and power spectrum analysis (4–12 Hz band)
+- **Gait** — step detection, asymmetry, cadence variability
+- **Fine motor** — keystroke dynamics, guided touch tasks
+- **Voice** — jitter, shimmer, HNR, pause duration, prosody
+- **HRV** — heart rate variability (autonomic indicator)
+- **Sleep / recovery** — via optional wearable (Oura, Apple Watch)
+- **Posture** — optional IMU analysis
 
-```text
-Sensing → Pattern Detection → Baseline Comparison → Biofeedback → Memory → Human Review
+---
+
+## Personal Baseline Algorithm
+
+```
+Phase 1 — Calibration (4–8 weeks): no alerts; builds historical distribution
+Phase 2 — Adaptive monitoring: individual z-score per feature
+Phase 3 — Escalation: persistent deviation → awareness increase → report → clinical referral
+```
+
+Deviation is flagged only when present across ≥5 sessions in 7 days (default). Single-event anomalies are not reported.
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/MarBeo-cyber/PAAA.git
+cd PAAA
+pip install -r requirements.txt
+pip install -e .
+python examples/run_demo.py
+```
+
+---
+
+## Safety Boundaries
+
+PAAA enforces hard limits through its Safety Governor:
+
+| Limit | Reason |
+|---|---|
+| No diagnostic output | Not a medical device |
+| No disease name in output | Avoids cognitive bias in user |
+| No prescription | Does not replace physician |
+| Mandatory escalation threshold | Hardcoded; not user-configurable |
+
+---
+
+## Integration with MAAA
+
+When MAAA is active in an emergency scenario, it can access (with prior user consent) the PAAA neurofunctional baseline to calibrate real-time cognitive state monitoring. The shared longitudinal profile enables the MAAA to distinguish genuine cognitive degradation from stress-induced performance variation.
+
+---
+
+## Project Structure
+
+```
+PAAA/
+├── paaa/
+│   ├── baseline.py         Personal Baseline Engine
+│   ├── safety.py           Safety Governor
+│   └── __init__.py
+├── docs/
+│   ├── ARCHITECTURE.md     Five-layer technical architecture
+│   ├── SAFETY_AND_REGULATORY.md
+│   └── references.md       Scientific foundations
+├── examples/
+│   └── run_demo.py
+└── tests/
+```
+
+---
+
+## Citation
+
+```bibtex
+@software{paaa2025,
+  title  = {PAAA: Personal Autopoietic Adaptive Agent},
+  author = {Beozzi, Marco Giuseppe},
+  year   = {2025},
+  url    = {https://github.com/MarBeo-cyber/PAAA},
+  note   = {Part of the WAAA → MAAA → PAAA → SAAA artificial ontogenesis}
+}
 ```
