@@ -1,0 +1,19 @@
+paaa:
+  baseline:
+    minimum_samples: 5
+    validity_days: 30
+  thresholds:
+    medium: 0.35
+    high: 0.55
+    review: 0.72
+  safety:
+    stimulation_enabled_default: false
+    max_stimulation_intensity_pct: 15
+    explicit_consent_required: true
+    non_diagnostic_output: true
+  feedback:
+    channels:
+      - visual
+      - audio
+      - haptic
+      - bone_conduction
