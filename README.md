@@ -1,3 +1,5 @@
+[![AURA Framework](https://img.shields.io/badge/AURA-Level%203%20%7C%20PAAA-1F3864)](https://github.com/MarBeo-cyber/AURA)
+
 # PAAA — Personal Autopoietic Adaptive Agent
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
