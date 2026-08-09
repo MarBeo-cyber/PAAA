@@ -20,7 +20,7 @@ class DomainMode(str, Enum):
 class SignalQuality(str, Enum):
     GOOD = "good"
     DEGRADED = "degraded"
-    UNUSABLE = "usable_false"
+    UNUSABLE = "unusable"
 
 
 class FunctionalRisk(str, Enum):
@@ -64,7 +64,13 @@ class PhysiologicalSample:
 
 @dataclass
 class BaselineProfile:
-    """Personal baseline built in controlled setup or low-risk daily calibration."""
+    """Personal baseline built in controlled setup or low-risk daily calibration.
+
+    `stds` are floored at the per-feature resolution limit (see
+    ``baseline.FEATURE_MIN_STD``). `degenerate_features` lists the features
+    whose observed spread was below that limit, i.e. features for which the
+    baseline carries no usable variance information.
+    """
 
     user_alias: str
     sample_count: int
@@ -73,16 +79,28 @@ class BaselineProfile:
     created_at: str = field(default_factory=utc_now)
     validity_days: int = 30
     domain_mode: DomainMode = DomainMode.MONITORING
+    degenerate_features: List[str] = field(default_factory=list)
 
 
 @dataclass
 class FunctionalState:
+    """Deviation of one sample from the personal baseline.
+
+    `confidence` is confidence in the *comparison* (how much baseline evidence
+    backs it), not confidence in any clinical inference. `z_scores` are raw,
+    direction-adjusted and unclipped, so downstream escalation can apply the
+    documented |z| > 1.5 rule. `feature_scores` are the derived motor scores
+    reported alongside the deviation score.
+    """
+
     stability_score: float
     deviation_score: float
     risk: FunctionalRisk
     drivers: List[str]
     confidence: float
     non_diagnostic: bool = True
+    z_scores: Dict[str, float] = field(default_factory=dict)
+    feature_scores: Dict[str, float] = field(default_factory=dict)
 
 
 @dataclass
@@ -94,3 +112,4 @@ class FeedbackPlan:
     requires_review: bool = False
     stimulation_allowed: bool = False
     reason: str = ""
+    escalation: Optional[Dict] = None

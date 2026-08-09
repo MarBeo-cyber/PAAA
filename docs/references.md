@@ -38,13 +38,13 @@ It is **not** a diagnostic or therapeutic medical device.
 *Suitability of dysphonia measurements for telemonitoring of Parkinson's disease*  
 *IEEE Transactions on Biomedical Engineering*  
 → Voice biomarkers (jitter, shimmer, HNR) for longitudinal monitoring  
-→ Applied in PAAA: voice feature extraction module
+→ Motivates the `voice_stability` input in PAAA. Not implemented: PAAA performs no audio capture and computes no dysphonia measures. It consumes a precomputed `voice_stability` scalar and compares it against the personal baseline
 
 **Arora, S. et al. (2015)**  
 *Detecting and monitoring the symptoms of Parkinson's disease using smartphones*  
 *Methods, 81, 41–46*  
 → Smartphone-based tremor and gait monitoring  
-→ Applied in PAAA: passive sensing layer
+→ Motivates the tremor inputs. Not implemented: PAAA has no sensing layer (see ARCHITECTURE.md, L1)
 
 ---
 
@@ -54,7 +54,7 @@ It is **not** a diagnostic or therapeutic medical device.
 *Heart rate variability: standards of measurement, physiological interpretation, and clinical use*  
 *Circulation, 93(5), 1043–1065*  
 → HRV as autonomic nervous system indicator  
-→ Applied in PAAA: physiological continuity layer
+→ Conceptual grounding for the `stress_proxy` input. Not implemented: PAAA computes no HRV and ingests no cardiac signal
 
 ---
 
@@ -70,7 +70,7 @@ It is **not** a diagnostic or therapeutic medical device.
 *The role of daylight for humans: gaps in current knowledge*  
 *Nature and Science of Sleep, 4, 67–77*  
 → Circadian and seasonal factors in physiological parameters  
-→ Applied in PAAA: contextual baseline correction
+→ Open problem for PAAA: the baseline is currently context-free. Time of day, sleep and declared stress are not modelled, so a genuine circadian effect is indistinguishable from a deviation. Contextual baseline correction is future work, not a feature
 
 ---
 

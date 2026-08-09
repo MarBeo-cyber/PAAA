@@ -1,0 +1,17 @@
+{
+  "minimum_samples": 5,
+  "validity_days": 30,
+
+  "medium_threshold": 0.35,
+  "high_threshold": 0.55,
+  "review_threshold": 0.72,
+  "driver_threshold": 0.45,
+
+  "stimulation_enabled_default": false,
+  "max_stimulation_intensity_pct": 15,
+  "explicit_consent_required": true,
+
+  "escalation_z_threshold": 1.5,
+  "escalation_min_sessions": 5,
+  "escalation_window_days": 7
+}

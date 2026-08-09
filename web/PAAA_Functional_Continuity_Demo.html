@@ -34,10 +34,17 @@ h1{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)
 .controls{display:flex;gap:10px;flex-wrap:wrap;padding:14px 18px 18px;border-top:1px solid rgba(255,255,255,.08)}
 button{border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.05);color:var(--text);font-weight:850;padding:10px 14px;cursor:pointer}
 button:hover{background:rgba(255,255,255,.1)}
+.banner{width:920px;max-width:100%;border:1px solid rgba(255,178,63,.45);background:rgba(255,178,63,.10);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:12px;line-height:1.5;color:#ffd79a}
+.banner b{color:var(--amber)}
 </style>
 </head>
 <body>
 <h1>PAAA - Functional Continuity Sensory Demo</h1>
+<div class="banner">
+<b>Storyboard, non il motore.</b> Questa pagina e' una sceneggiatura pre-scritta dell'interfaccia sensoriale prevista. I quattro pulsanti impostano punteggi fissi (8 / 42 / 63 / 82); non chiamano <code>paaa_core</code>, non calcolano baseline ne' z-score, e non condividono codice con il motore. Per output reali eseguire <code>python examples/run_demo.py</code>.
+<br/>
+<b>Storyboard, not the engine.</b> This page is a pre-scripted mock-up of the intended sensory interface. The four buttons set fixed scores (8 / 42 / 63 / 82); they do not call <code>paaa_core</code>, compute no baseline or z-score, and share no code with the engine. For real output run <code>python examples/run_demo.py</code>.
+</div>
 <div class="frame">
 <div class="header"><span>PAAA v1.0</span><span id="mode">baseline stable</span></div>
 <div class="main">

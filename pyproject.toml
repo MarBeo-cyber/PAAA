@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paaa"
+version = "1.0.0"
+description = "PAAA - Physiological Autopoietic Adaptive Agent: personal-baseline functional continuity monitoring (non-diagnostic)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Marco Giuseppe Beozzi" }]
+keywords = ["autopoiesis", "baseline", "biofeedback", "non-diagnostic", "monitoring"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools]
+packages = ["paaa_core"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Lets a bare `pytest` work from a clean clone without an editable install.
+pythonpath = ["."]
